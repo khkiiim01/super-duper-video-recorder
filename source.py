@@ -14,10 +14,10 @@ def adjust_contrast(frame, factor):
     """대비를 조절하는 함수 (감마 보정 방식)"""
     if factor == 1.0:
         return frame  # 원본 유지
-    gamma = max(0.1, min(3.0, factor))  # 감마 값 제한 (안정성 보장)
+    gamma = max(0.1, min(3.0, factor))
     invGamma = 1.0 / gamma
     table = np.array([(i / 255.0) ** invGamma * 255 for i in range(256)]).astype("uint8")
-    return cv.LUT(frame, table)  # 감마 변환 적용
+    return cv.LUT(frame, table)
 
 while True:
     ret, frame = cap.read() 
@@ -39,9 +39,9 @@ while True:
         out.write(frame)  # 프레임 저장
         cv.circle(frame, (50, 50), 10, (0, 0, 255), -1)  # 녹화 중일 때 빨간 원 표시
     
-    cv.imshow('Video Recorder', frame)  # 화면에 프레임 표시
+    cv.imshow('Video Recorder', frame)
 
-    key = cv.waitKey(1)  # 키 입력 받기 (이전보다 안정적인 방식)
+    key = cv.waitKey(1)  # 키 입력력
     
     if key == 27:  # ESC 키 → 종료
         break
