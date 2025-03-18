@@ -39,7 +39,7 @@ while True:
         out.write(frame)  # 프레임 저장
         cv.circle(frame, (50, 50), 10, (0, 0, 255), -1)  # 녹화 중일 때 빨간 원 표시
     
-    cv.imshow('Video Recorder', frame)
+    cv.imshow('Super Duper Video Recorder', frame)
 
     key = cv.waitKey(1)  # 키 입력력
     
